@@ -5,8 +5,8 @@ provider "digitalocean" {
 }
 
 module "labels" {
-  source = "./../"
-
+  source      = "./../"
+  enabled     = true
   name        = "labels"
   application = "clouddrove"
   environment = "test"
