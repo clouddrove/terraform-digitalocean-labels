@@ -24,10 +24,12 @@ locals {
   attributes  = local.enabled == true ? format("%v", join(var.delimiter, compact(var.attributes))) : ""
 
 }
+
 resource "digitalocean_tag" "id" {
   count = var.enabled == true ? 1 : 0
   name  = local.id
 }
+
 resource "digitalocean_tag" "name" {
   count = var.enabled == true ? 1 : 0
   name  = local.name
