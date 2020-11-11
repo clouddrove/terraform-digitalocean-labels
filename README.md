@@ -57,7 +57,8 @@ This module has a few dependencies:
 Here is an example of how you can use this module in your inventory structure:
 ```hcl
     module "labels" {
-    source      = "git::"https://github.com/clouddrove/terraform-digitalocean-labels"
+    source      = "clouddrove/labels/digitalocean"
+    version     = "0.13.0"
     name        = "labels"
     application = "clouddrove"
     environment = "test"
