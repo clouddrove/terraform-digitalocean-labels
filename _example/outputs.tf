@@ -13,11 +13,6 @@ output "environment" {
   description = "Normalized name."
 }
 
-output "application" {
-  value       = module.labels.application
-  description = "Normalized name."
-}
-
 output "managedby" {
   value       = module.labels.managedby
   description = "Normalized name."

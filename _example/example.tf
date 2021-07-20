@@ -8,7 +8,6 @@ module "labels" {
   source      = "./../"
   enabled     = true
   name        = "labels"
-  application = "clouddrove"
   environment = "test"
-  label_order = ["name", "application", "environment"]
+  label_order = ["name", "environment"]
 }
