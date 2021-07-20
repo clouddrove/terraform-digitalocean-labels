@@ -13,13 +13,13 @@ variable "environment" {
 }
 
 variable "label_order" {
-  type        = list
+  type        = list(any)
   default     = []
   description = "Label order, e.g. `name`,`application`."
 }
 
 variable "attributes" {
-  type        = list
+  type        = list(any)
   default     = []
   description = "Additional attributes (e.g. `1`)."
 }
@@ -52,4 +52,10 @@ variable "delimiter" {
   type        = string
   default     = "-"
   description = "Delimiter to be used between `organization`, `name`, `environment` and `attributes`."
+}
+
+variable "repository" {
+  type        = string
+  default     = "https://github.com/terraform-do-modules/terraform-digitalocean-labels"
+  description = "Terraform current module repo"
 }
