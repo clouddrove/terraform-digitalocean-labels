@@ -17,9 +17,9 @@ jobs:
 
       - name: 'Terratest'
         if: ${{ github.event.label.name == 'terratest' }}
-        uses: 'clouddrove/github-actions@v9.0'
+        uses: 'clouddrove/github-actions@CD-338'
         with:
-          actions_subcommand: 'terratest_do'
+          actions_subcommand: 'terratest'
           tf_actions_working_dir: '_test'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
