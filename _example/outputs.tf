@@ -17,8 +17,3 @@ output "managedby" {
   value       = module.labels.managedby
   description = "Normalized name."
 }
-
-output "createdby" {
-  value       = module.labels.createdby
-  description = "Normalized name."
-}

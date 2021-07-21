@@ -17,11 +17,6 @@ output "environment" {
   description = "Normalized environment."
 }
 
-output "createdby" {
-  value       = join("", digitalocean_tag.createdby.*.id)
-  description = "Normalized createdby."
-}
-
 output "managedby" {
   value       = join("", digitalocean_tag.managedby.*.id)
   description = "Normalized managedby."
