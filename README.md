@@ -14,7 +14,7 @@
 <p align="center">
 
 <a href="https://www.terraform.io">
-  <img src="https://img.shields.io/badge/Terraform-v0.13-green" alt="Terraform">
+  <img src="https://img.shields.io/badge/Terraform-v0.15-green" alt="Terraform">
 </a>
 <a href="LICENSE.md">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="Licence">
@@ -51,7 +51,7 @@ We have [*fifty plus terraform modules*][terraform_modules]. A few of them are c
 
 This module has a few dependencies: 
 
-- [Terraform 0.13](https://learn.hashicorp.com/terraform/getting-started/install.html)
+- [Terraform 0.15](https://learn.hashicorp.com/terraform/getting-started/install.html)
 - [Go](https://golang.org/doc/install)
 - [github.com/stretchr/testify/assert](https://github.com/stretchr/testify)
 - [github.com/gruntwork-io/terratest/modules/terraform](https://github.com/gruntwork-io/terratest)
@@ -73,11 +73,10 @@ Here is an example of how you can use this module in your inventory structure:
 ```hcl
     module "labels" {
     source      = "clouddrove/labels/digitalocean"
-    version     = "0.13.0"
+    version     = "0.15.0"
     name        = "labels"
-    application = "clouddrove"
     environment = "test"
-    label_order = ["name", "application", "environment"]
+    label_order = ["name", "environment"]
     }
 ```
 
