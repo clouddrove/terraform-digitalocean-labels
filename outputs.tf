@@ -12,19 +12,9 @@ output "name" {
   description = "Normalized name."
 }
 
-output "application" {
-  value       = join("", digitalocean_tag.application.*.id)
-  description = "Normalized application."
-}
-
 output "environment" {
   value       = join("", digitalocean_tag.environment.*.id)
   description = "Normalized environment."
-}
-
-output "createdby" {
-  value       = join("", digitalocean_tag.createdby.*.id)
-  description = "Normalized createdby."
 }
 
 output "managedby" {
