@@ -14,7 +14,7 @@
 <p align="center">
 
 <a href="https://www.terraform.io">
-  <img src="https://img.shields.io/badge/Terraform-v0.13-green" alt="Terraform">
+  <img src="https://img.shields.io/badge/Terraform-v0.15-green" alt="Terraform">
 </a>
 <a href="LICENSE.md">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="Licence">
@@ -73,11 +73,10 @@ Here is an example of how you can use this module in your inventory structure:
 ```hcl
     module "labels" {
     source      = "clouddrove/labels/digitalocean"
-    version     = "0.13.0"
+    version     = "0.15.0"
     name        = "labels"
-    application = "clouddrove"
     environment = "test"
-    label_order = ["name", "application", "environment"]
+    label_order = ["name", "environment"]
     }
 ```
 
@@ -90,13 +89,11 @@ Here is an example of how you can use this module in your inventory structure:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| application | Application (e.g. `cd` or `clouddrove`). | `string` | `""` | no |
-| attributes | Additional attributes (e.g. `1`). | `list` | `[]` | no |
-| createdby | CreatedBy, eg 'terraform'. | `string` | `"terraform"` | no |
+| attributes | Additional attributes (e.g. `1`). | `list(any)` | `[]` | no |
 | delimiter | Delimiter to be used between `organization`, `name`, `environment` and `attributes`. | `string` | `"-"` | no |
 | enabled | Set to false to prevent the module from creating any resources. | `bool` | `true` | no |
 | environment | Environment (e.g. `prod`, `dev`, `staging`). | `string` | `""` | no |
-| label\_order | Label order, e.g. `name`,`application`. | `list` | `[]` | no |
+| label\_order | Label order, e.g. `name`,`application`. | `list(any)` | `[]` | no |
 | managedby | ManagedBy, eg 'CloudDrove' or 'AnmolNagpal'. | `string` | `"CloudDrove"` | no |
 | name | Name  (e.g. `app` or `cluster`). | `string` | `""` | no |
 | tags | Additional tags (e.g. map(`BusinessUnit`,`XYZ`). | `map(string)` | `{}` | no |
@@ -105,8 +102,6 @@ Here is an example of how you can use this module in your inventory structure:
 
 | Name | Description |
 |------|-------------|
-| application | Normalized application. |
-| createdby | Normalized createdby. |
 | environment | Normalized environment. |
 | id | Disambiguated ID. |
 | managedby | Normalized managedby. |
