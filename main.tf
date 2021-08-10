@@ -8,7 +8,6 @@ locals {
   enabled = var.enabled == true ? true : false
   id_context = {
     name        = var.name
-    application = var.application
     environment = var.environment
   }
 
@@ -17,9 +16,7 @@ locals {
 
   id          = lower(join(var.delimiter, local.id_labels, var.attributes))
   name        = local.enabled == true ? format("%v%s", "Name:-", var.name) : ""
-  application = local.enabled == true ? format("%v%s", "Application:-", var.application) : ""
   environment = local.enabled == true ? format("%v%s", "Environment:-", var.environment) : ""
-  createdby   = local.enabled == true ? format("%v%s", "Createdby:-", var.createdby) : ""
   managedby   = local.enabled == true ? format("%v%s", "Managedby:-", var.managedby) : ""
   attributes  = local.enabled == true ? format("%v", join(var.delimiter, compact(var.attributes))) : ""
 
@@ -35,20 +32,11 @@ resource "digitalocean_tag" "name" {
   name  = local.name
 }
 
-resource "digitalocean_tag" "application" {
-  count = var.enabled == true ? 1 : 0
-  name  = local.application
-}
-
 resource "digitalocean_tag" "environment" {
   count = var.enabled == true ? 1 : 0
   name  = local.environment
 }
 
-resource "digitalocean_tag" "createdby" {
-  count = var.enabled == true ? 1 : 0
-  name  = local.createdby
-}
 
 resource "digitalocean_tag" "managedby" {
   count = var.enabled == true ? 1 : 0
