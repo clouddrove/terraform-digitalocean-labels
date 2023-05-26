@@ -14,7 +14,7 @@ variable "environment" {
 
 variable "label_order" {
   type        = list(any)
-  default     = []
+  default     = ["name", "environment"]
   description = "Label order, e.g. `name`,`application`."
 }
 
@@ -39,12 +39,23 @@ variable "managedby" {
 
 variable "enabled" {
   type        = bool
-  description = "Set to false to prevent the module from creating any resources."
   default     = true
+  description = "Set to false to prevent the module from creating any resources."
 }
 
 variable "delimiter" {
   type        = string
   default     = "-"
   description = "Delimiter to be used between `organization`, `name`, `environment` and `attributes`."
+}
+variable "repository" {
+  type        = string
+  default     = "https://github.com/terraform-do-modules/terraform-digitalocean-labels.git"
+  description = "Terraform current module repo"
+}
+
+variable "extra_tags" {
+  type        = map(string)
+  default     = {}
+  description = "Additional tags (e.g. map(`BusinessUnit`,`XYZ`)."
 }
